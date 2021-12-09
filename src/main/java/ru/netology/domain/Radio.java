@@ -6,11 +6,32 @@ public class Radio {
     private String name;
     private int currentRadioStation;
     private int currentVolume;
+    private int countOfRadioStations = 10;
 
+    // Геттер и сеттер на новое поле количество радиостанций
+    public int getCountOfRadioStations() {
+        return countOfRadioStations;
+    }
+
+    public void setCountOfRadioStations(int countOfRadioStations) {
+        if (countOfRadioStations < 0) {
+            return;
+        }
+        this.countOfRadioStations = countOfRadioStations;
+    }
+
+
+    // Конструктор с параметром "количество радиостанций"
+    public Radio(int countOfRadioStations) {
+        this.countOfRadioStations = countOfRadioStations;
+    }
+    // Конструктор без параметров
+    public Radio() {
+    }
 
     // Следующая радиостанция
     public void nextRadioStation() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < countOfRadioStations - 1) {
             currentRadioStation = currentRadioStation + 1;
         } else {
             currentRadioStation = 0;
@@ -23,13 +44,13 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = countOfRadioStations -1;
         }
     }
 
     // Увеличение громкости
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
@@ -74,7 +95,7 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         if (currentVolume < 0) {
