@@ -20,6 +20,22 @@ class RadioTest {
         assertEquals(1, radio.getCountOfRadioStations());
     }
 
+
+    @Test
+    public void shouldSetCountOfRadioStations0() {
+        Radio radio = new Radio();
+        radio.setCountOfRadioStations(0);
+        assertEquals(0, radio.getCountOfRadioStations());
+    }
+
+
+    @Test
+    public void shouldNotSetCountOfRadioStationsMinus1() {
+        Radio radio = new Radio();
+        radio.setCountOfRadioStations(-1);
+        assertEquals(10, radio.getCountOfRadioStations());
+    }
+
     @Test
     public void shouldUseConstructorNoArgs() {
         Radio radio = new Radio();
@@ -84,7 +100,7 @@ class RadioTest {
     public void shouldSetRadioStation10Count11() {
         Radio radio = new Radio(11);
         radio.setCurrentRadioStation(10);
-        assertEquals(0, radio.getCurrentRadioStation());
+        assertEquals(10, radio.getCurrentRadioStation());
     }
 
 
