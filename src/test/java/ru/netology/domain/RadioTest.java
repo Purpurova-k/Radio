@@ -12,6 +12,14 @@ class RadioTest {
         assertEquals("Станция 1", radio.getName());
     }
 
+
+    @Test
+    public void shouldSetCountOfRadioStations1() {
+        Radio radio = new Radio();
+        radio.setCountOfRadioStations(1);
+        assertEquals(1, radio.getCountOfRadioStations());
+    }
+
     @Test
     public void shouldUseConstructorNoArgs() {
         Radio radio = new Radio();
