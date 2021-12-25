@@ -1,16 +1,21 @@
 package ru.netology.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 
 // Поля объекта
 public class Radio {
     private String name;
     private int currentRadioStation;
     private int currentVolume;
-
+    private int countOfRadioStations = 10;
 
     // Следующая радиостанция
     public void nextRadioStation() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < countOfRadioStations - 1) {
             currentRadioStation = currentRadioStation + 1;
         } else {
             currentRadioStation = 0;
@@ -23,13 +28,13 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = countOfRadioStations - 1;
         }
     }
 
     // Увеличение громкости
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
@@ -41,24 +46,10 @@ public class Radio {
         }
     }
 
-    // Далее идут геттеры и сеттеры для полей
-    // Геттер и сеттер для поля Name
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    // Геттер и сеттер для поля CurrentRadioStation
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
+    // Сеттеры с логикой
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > countOfRadioStations - 1) {
             return;
         }
         if (currentRadioStation < 0) {
@@ -67,14 +58,16 @@ public class Radio {
         this.currentRadioStation = currentRadioStation;
     }
 
-
-    // Геттер и сеттер для поля CurrentVolume
-    public int getCurrentVolume() {
-        return currentVolume;
+    public void setCountOfRadioStations(int countOfRadioStations) {
+        if (countOfRadioStations < 0) {
+            return;
+        }
+        this.countOfRadioStations = countOfRadioStations;
     }
 
+
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         if (currentVolume < 0) {
@@ -82,6 +75,13 @@ public class Radio {
         }
         this.currentVolume = currentVolume;
     }
+
+
+    // Консутруктор с параметром количество радиостанций
+    public Radio(int countOfRadioStation) {
+        this.countOfRadioStations = countOfRadioStation;
+    }
 }
+
 
 

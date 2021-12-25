@@ -20,6 +20,12 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,13 +55,6 @@
                 <phase>verify</phase>
                 <goals>
                     <goal>report</goal>
-                </goals>
-            </execution>
-            <execution>
-                <id>check</id>
-                <phase>verify</phase>
-                <goals>
-                    <goal>check</goal>
                 </goals>
             </execution>
         </executions>
