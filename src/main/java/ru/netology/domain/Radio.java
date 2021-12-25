@@ -58,21 +58,22 @@ public class Radio {
         this.currentRadioStation = currentRadioStation;
     }
 
-    public void setCountOfRadioStations (int countOfRadioStations) {
+    public void setCountOfRadioStations(int countOfRadioStations) {
         if (countOfRadioStations < 0) {
             return;
         }
+        this.countOfRadioStations = countOfRadioStations;
     }
 
 
-    public void setCurrentVolume (int currentVolume) {
+    public void setCurrentVolume(int currentVolume) {
         if (currentVolume > 100) {
             return;
         }
         if (currentVolume < 0) {
-
             return;
         }
+        this.currentVolume = currentVolume;
     }
 
 
